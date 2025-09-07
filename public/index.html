@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS CI/CD Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button id="theme-toggle">🌙 Dark Mode</button>
+
+  <div class="container">
+    <h1>🚀 AWS CI/CD Demo App</h1>
+    <p class="tagline">Deployed on <span>AWS EC2 with CodePipeline</span></p>
+
+    <div class="info">
+      <p id="version">App Version: ...</p>
+      <p id="deploy-time">Last Deployed: ...</p>
+    </div>
+
+    <button onclick="checkHealth()">Check Health</button>
+    <div id="health-status" class="status">Checking...</div>
+
+    <a href="https://github.com/Imash24/AWS-CI-CD-DEMO" target="_blank" class="github-btn">
+      ⭐ View on GitHub
+    </a>
+  </div>
+
+  <!-- Watermark -->
+  <div class="watermark">Project by Ashwin Venkatesan</div>
+
+  <script>
+    async function loadInfo() {
+      const res = await fetch('/info');
+      const data = await res.json();
+      document.getElementById('version').textContent = "App Version: " + data.version;
+      document.getElementById('deploy-time').textContent = "Last Deployed: " + data.deployedAt;
+    }
+
+    async function checkHealth() {
+      const statusEl = document.getElementById('health-status');
+      try {
+        const res = await fetch('/health');
+        if (res.ok) {
+          statusEl.textContent = "✅ Healthy";
+          statusEl.className = "status ok";
+        } else {
+          throw new Error();
+        }
+      } catch {
+        statusEl.textContent = "❌ Unhealthy";
+        statusEl.className = "status fail";
+      }
+    }
+
+    // Dark/Light theme toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      if (document.body.classList.contains('light-mode')) {
+        toggleBtn.textContent = "☀️ Light Mode";
+      } else {
+        toggleBtn.textContent = "🌙 Dark Mode";
+      }
+    });
+
+    loadInfo();
+    checkHealth();
+  </script>
+</body>
+</html>

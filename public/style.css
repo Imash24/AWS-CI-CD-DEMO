@@ -1,0 +1,126 @@
+/* Default Dark Theme */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s, color 0.5s;
+}
+
+.container {
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.tagline span {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.info {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #ffd700;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+#theme-toggle:hover {
+  background: #ffcc00;
+}
+
+/* Buttons */
+button {
+  background: #ffd700;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #ffcc00;
+}
+
+.status {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.status.ok {
+  background: #28a745;
+  color: white;
+}
+
+.status.fail {
+  background: #dc3545;
+  color: white;
+}
+
+.github-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background: #24292e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.github-btn:hover {
+  background: #444c56;
+}
+
+.watermark {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  pointer-events: none;
+}
+
+/* 🌞 Light Theme */
+body.light-mode {
+  background: linear-gradient(135deg, #ffffff, #e6e6e6);
+  color: #222;
+}
+
+body.light-mode .tagline span {
+  color: #ff6600;
+}
+
+body.light-mode .github-btn {
+  background: #0366d6;
+}
+
+body.light-mode .github-btn:hover {
+  background: #0555b5;
+}
